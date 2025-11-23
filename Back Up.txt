@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Arnox Software</title>
+
+  <!-- Performance: preconnect + preload logo -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="image" href="/mnt/data/Log2.png">
+
+  <!-- Google font light usage -->
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <meta name="description" content="قالب بسیار سبک و سریع برای شرکت نرم‌افزاری با رنگ‌بندی مشکی، قرمز و بنفش. شامل: خدمات، نمونه‌کار، تعرفه، تیم، تماس، و دکمه واتساپ شناور.">
+
+  <style>
+    /* Critical CSS - minimal, mobile-first */
+    :root{--bg:#0b0b0b;--card:#0f0f12;--muted:#9aa3ad;--accent1:#ff2936;--accent2:#7b5bff;--glass:rgba(255,255,255,0.03)}
+    html,body{height:100%;}
+    *{box-sizing:border-box}
+    body{margin:0;font-family: 'Vazirmatn', system-ui, -apple-system, "Segoe UI", Roboto, 'Helvetica Neue', Arial; background:var(--bg);color:#fff;-webkit-font-smoothing:antialiased}
+
+    /* Layout */
+    .container{width:100%;max-width:1100px;margin:0 auto;padding:0 16px}
+    header{position:sticky;top:0;background:linear-gradient(180deg, rgba(0,0,0,0.58), rgba(0,0,0,0.28));backdrop-filter:blur(6px);z-index:40}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{width:64px;height:64px;object-fit:contain;border-radius:12px}
+    .brand h1{font-size:18px;margin:0;font-weight:700}
+
+    nav ul{display:flex;gap:12px;align-items:center;margin:0;padding:0;list-style:none}
+    nav a{color:#d7dee6;text-decoration:none;font-weight:500;font-size:14px;padding:8px;border-radius:8px}
+    nav a:hover{background:rgba(255,255,255,0.03);color:var(--accent1)}
+
+    /* Hero */
+    .hero{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:56px 0}
+    .hero .title{font-size:28px;font-weight:800;line-height:1.02;margin:6px 0}
+    .hero .lead{color:var(--muted);max-width:780px;margin:8px 0 16px}
+    .cta{display:inline-flex;gap:8px;align-items:center;background:linear-gradient(90deg,var(--accent1),var(--accent2));color:#fff;padding:12px 18px;border-radius:999px;font-weight:700}
+
+    /* Services */
+    .grid{display:grid;gap:14px}
+    .services .grid{grid-template-columns:repeat(1,1fr)}
+    .card{background:linear-gradient(180deg,var(--card),#0b0b0b);padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.04);box-shadow:0 6px 18px rgba(0,0,0,0.6)}
+    .card h3{margin:0 0 8px;font-size:16px}
+    .card p{margin:0;color:var(--muted);font-size:14px}
+
+    /* Portfolio */
+    .portfolio .thumb{width:100%;height:200px;border-radius:12px;overflow:hidden;background:#111;display:block}
+    .portfolio img{width:100%;height:100%;object-fit:cover;display:block}
+
+    /* Pricing */
+    .pricing{display:flex;flex-direction:column;gap:12px}
+    .price{display:flex;flex-direction:column;gap:8px;padding:16px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);border:1px solid rgba(255,255,255,0.04)}
+    .price .amount{font-weight:800;font-size:20px}
+
+    /* Team */
+    .team{display:flex;gap:12px;overflow:auto;padding-bottom:6px}
+    .member{min-width:140px;background:var(--card);padding:12px;border-radius:12px;text-align:center}
+    .member img{width:72px;height:72px;border-radius:50%;object-fit:cover}
+
+    /* Contact */
+    form{display:flex;flex-direction:column;gap:10px}
+    input,textarea{background:#0b0b0b;border:1px solid rgba(255,255,255,0.04);padding:12px;border-radius:10px;color:#fff}
+    button[type=submit]{background:linear-gradient(90deg,var(--accent1),var(--accent2));border:none;color:#fff;padding:12px;border-radius:10px;font-weight:700}
+
+    footer{padding:28px 0;color:var(--muted);text-align:center}
+
+    /* Floating WhatsApp */
+    .whatsapp{position:fixed;bottom:20px;left:20px;background:linear-gradient(180deg,var(--accent1),var(--accent2));width:56px;height:56px;border-radius:999px;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(0,0,0,0.6);z-index:60}
+
+    /* Responsive */
+    @media(min-width:700px){
+      .hero{padding:84px 0}
+      .services .grid{grid-template-columns:repeat(2,1fr)}
+      .pricing{flex-direction:row}
+      .portfolio .thumb{height:260px}
+      .team{gap:18px}
+    }
+    @media(min-width:980px){
+      nav ul{gap:18px}
+      .services .grid{grid-template-columns:repeat(3,1fr)}
+      .container{max-width:1200px}
+    }
+
+    /* Small accessibility & focus */
+    a:focus, button:focus, input:focus, textarea:focus{outline:2px solid rgba(123,91,255,0.18);outline-offset:3px}
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <!-- logo from uploaded file -->
+        <img src="1.png" alt="logo" width="64" height="64" loading="eager">
+        <div>
+          <h1>Arnox Soft</h1>
+          <div style="color:var(--muted);font-size:12px;margin-top:2px">Arnox Software Company</div>
+        </div>
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="#services">خدمات</a></li>
+          <li><a href="#portfolio">نمونه‌کار</a></li>
+          <li><a href="#pricing">قیمت</a></li>
+          <li><a href="#team">تیم</a></li>
+          <li><a href="#contact">تماس</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero -->
+    <section class="hero" id="home">
+      <p style="color:var(--accent2);font-weight:700;text-transform:uppercase;letter-spacing:1px;margin:0">شرکت نرم‌افزاری آرنوکس</p>
+      <h2 class="title">برنامه نویسی - طراحی سایت - طراحی گرافیک - شبکه و سرور</h2>
+      <p class="lead">تیم آرنوکس با خدمات طراحی و خدمات نرم افزاری اماده و با تیم حرفه ای آماده کار هست .</p>
+      <div style="display:flex;gap:12px;justify-content:center;margin-top:14px;flex-wrap:wrap">
+        <a class="cta" href="#contact">درخواست اطلاعات</a>
+        <a class="cta" href="#portfolio" style="background:transparent;border:1px solid rgba(255,255,255,0.06);font-weight:600;color:#fff">نمونه‌کارها</a>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="services">
+      <h3 style="margin:8px 0 12px">خدمات ما</h3>
+      <div class="grid">
+        <article class="card">
+          <h3>برنامه‌نویسی اختصاصی</h3>
+          <p>تولید نرم‌افزارهای تحت وب، بک‌اند، API و اپلیکیشن‌های مقیاس‌پذیر</p>
+        </article>
+        <article class="card">
+          <h3>طراحی سایت</h3>
+          <p>طراحی رابط کاربری و تجربه کاربری، فروشگاه آنلاین و پنل‌های مدیریتی</p>
+        </article>
+        <article class="card">
+          <h3>طراحی گرافیک</h3>
+          <p>لوگو، هویت بصری، بنرها و موشن‌گرافیک</p>
+        </article>
+        <article class="card">
+          <h3>شبکه و زیرساخت</h3>
+          <p>پیاده‌سازی شبکه، امنیت، کانتینرزازی و DevOps</p>
+        </article>
+        <article class="card">
+          <h3>دولوپر / مشاوره فنی</h3>
+          <p>مشاوره معماری، بهینه‌سازی و تیم‌سازی فنی</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section id="portfolio" class="portfolio" style="margin-top:22px">
+      <h3 style="margin:8px 0 12px">نمونه‌کارها</h3>
+      <div class="grid" style="grid-template-columns:repeat(1,1fr);gap:12px">
+        <a class="thumb card" href="#" aria-label="نمونه کار 1">
+          <!-- use lazy loading for big images; user may replace with webp versions -->
+          <img src="https://picsum.photos/1200/720?random=21" alt="نمونه 1" loading="lazy" width="1200" height="720">
+        </a>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px">
+          <a class="thumb" style="flex:1;min-width:140px" href="#"><img src="https://picsum.photos/800/520?random=22" alt="نمونه 2" loading="lazy"></a>
+          <a class="thumb" style="flex:1;min-width:140px" href="#"><img src="https://picsum.photos/800/520?random=23" alt="نمونه 3" loading="lazy"></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" style="margin-top:22px">
+      <h3 style="margin:8px 0 12px">تعرفه‌ها</h3>
+      <div class="pricing">
+        <div class="price">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div><strong>بسته پایه</strong><div style="color:var(--muted);font-size:13px">برای استارتاپ‌ها</div></div>
+            <div class="amount">$100</div>
+          </div>
+          <ul style="margin:8px 0 0;padding-left:18px;color:var(--muted)">
+            <li>صفحه فرود</li>
+            <li>طراحی واکنش‌گرا</li>
+            <li>پشتیبانی ۲ هفته</li>
+          </ul>
+        </div>
+        <div class="price">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div><strong>بسته حرفه‌ای</strong><div style="color:var(--muted);font-size:13px">کسب‌وکارهای درحال رشد</div></div>
+            <div class="amount">$999</div>
+          </div>
+          <ul style="margin:8px 0 0;padding-left:18px;color:var(--muted)">
+            <li>سایت چندصفحه‌ای</li>
+            <li>CMS و SEO پایه</li>
+            <li>پشتیبانی ۱ ماه</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team -->
+    <section id="team" style="margin-top:22px">
+      <h3 style="margin:8px 0 12px">تیم</h3>
+      <div class="team">
+        <div class="member">
+          <img src="3.jpg" alt="امیرحسین خیاطزاده">
+          <div style="margin-top:8px;font-weight:700">امیرحسین خیاطزاده</div>
+          <div style="color:var(--muted);font-size:13px">برنامه نویس و طراح گرافیک</div>
+        </div>
+        <div class="member">
+          <img src="https://i.pravatar.cc/150?img=12" alt="">
+          <div style="margin-top:8px;font-weight:700">آرش </div>
+          <div style="color:var(--muted);font-size:13px">توسعه‌دهنده بک‌اند</div>
+        </div>
+        <div class="member">
+          <img src="https://i.pravatar.cc/150?img=56" alt="نگار محمدی">
+          <div style="margin-top:8px;font-weight:700">نگار محمدی</div>
+          <div style="color:var(--muted);font-size:13px">موشن گرافیست</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" style="margin-top:22px;margin-bottom:30px">
+      <h3 style="margin:8px 0 12px">تماس با ما</h3>
+      <form onsubmit="event.preventDefault();alert('پیام شما ارسال شد — نمونه');">
+        <input type="text" name="name" placeholder="نام" required>
+        <input type="email" name="email" placeholder="ایمیل" required>
+        <textarea name="message" placeholder="متن پیام" rows="5" required></textarea>
+        <button type="submit">ارسال پیام</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© 2025 Arnox Soft — تمامی حقوق محفوظ است</div>
+  </footer>
+
+  <!-- WhatsApp floating (replace number) -->
+  <a class="whatsapp" href="https://wa.me/989000000000" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.52 3.48A11.962 11.962 0 0012 0C5.373 0 .001 5.373 0 12a11.94 11.94 0 001.644 6.002L0 24l6.238-1.621A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12 0-3.2-1.249-6.198-3.48-8.52z" fill="#fff" opacity="0.08"/><path d="M17.472 14.382c-.297-.149-1.756-.867-2.029-.967-.273-.099-.472-.149-.671.15-.198.297-.767.967-.94 1.165-.173.198-.347.223-.644.075-.297-.149-1.255-.462-2.39-1.476-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.133-.132.297-.347.446-.52.15-.173.2-.297.3-.495.099-.198.05-.372-.025-.52-.075-.148-.671-1.615-.92-2.212-.242-.579-.487-.5-.671-.51l-.571-.01c-.198 0-.52.074-.793.372-.273.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.877 1.213 3.074.148.198 2.095 3.2 5.076 4.487 2.981 1.287 2.981.857 3.518.803.537-.052 1.748-.712 1.994-1.399.247-.687.247-1.277.173-1.399-.074-.124-.27-.198-.567-.347z" fill="#fff"/></svg>
+  </a>
+
+  <!-- Minimal JS: small optimizations -->
+  <script>
+    // prefer passive listeners where possible
+    (function(){
+      // tiny helper for smooth in-page links
+      document.querySelectorAll('a[href^="#"]').forEach(function(a){
+        a.addEventListener('click', function(e){
+          const href = a.getAttribute('href');
+          if(href.length>1){
+            const t = document.querySelector(href);
+            if(t){ e.preventDefault(); t.scrollIntoView({behavior:'smooth', block:'start'}); }
+          }
+        }, {passive:true});
+      });
+
+      // lightweight lazy-loading fallback for older browsers
+      if('loading' in HTMLImageElement.prototype) return; // modern browsers handle it
+      const imgs = document.querySelectorAll('img[loading="lazy"]');
+      if('IntersectionObserver' in window){
+        const io = new IntersectionObserver((entries)=>{
+          entries.forEach(entry=>{
+            if(entry.isIntersecting){
+              const img = entry.target; img.src = img.dataset.src || img.src; io.unobserve(img);
+            }
+          });
+        });
+        imgs.forEach(img=> io.observe(img));
+      } else {
+        // fallback: load all
+        imgs.forEach(i=> i.src = i.dataset.src || i.src);
+      }
+    })();
+  </script>
+</body>
+</html>
